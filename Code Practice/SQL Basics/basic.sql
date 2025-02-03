@@ -67,3 +67,85 @@
 -- update employee set salary = 56000 where name = 'Anuj'
 -- update employee set department = 'Marketing' where id = 7
 
+-- select * from employee
+
+-- update employee set gender = 'Male', salary = 72000, department = 'IT', city = 'Delhi' where name = 'Amit'
+-- update employee set gender = 'Male', salary = 62000, department = 'Accounts', city = 'Mumbai'where name = 'kunal'
+
+-- update employee set name = 'Kunal' where id =9
+
+-- update employee set gender = 'Female' where gender is null
+
+-- update employee set salary = 85000, department = 'HR', city = 'Bhopal' where name = 'Shivani'
+-- update employee set salary = 32000, department = 'IT', city = 'Surat' where name = 'Rani'
+
+-- update employee set salary = 25000, department = 'IT', city = 'Lucknow' where id = 10
+
+-- select * from employee
+
+-- alter table employee add country varchar(255)
+
+-- update employee set country = 'India' where country is null
+
+-- alter table employee add phone int, email varchar(255)
+
+-- alter table employee drop column phone
+-- alter table employee drop column email
+
+-- select * into emp1 from employee
+-- select * into emp_male from employee where gender = 'Male'
+-- select * into emp_female from employee where gender = 'Female'
+-- select id, name, age, gender into emp2 from employee
+
+-- select * from emp1
+-- select * from emp_male
+-- select * from emp_female
+-- select * from emp2
+
+-- delete from emp1 where name = 'Anuj'
+-- delete from emp1 where gender = 'male'
+
+-- truncate table emp1
+
+-- drop table emp2
+-- drop table emp_female
+
+-- create table #zoo
+-- (
+--     id int,
+--     name varchar(255),
+--     location varchar(255)
+-- )
+
+-- select * from #zoo
+
+-- insert into #zoo VALUES
+-- (1,'Kite','Lucknow'),
+-- (2,'Del','Delhi')
+
+-- select * into #info from employee
+
+-- select * from #info
+
+-- create table school
+-- (
+--     id int,
+--     name varchar(255),
+--     science int,
+--     maths int,
+--     english int
+-- )
+
+-- insert into school VALUES
+-- (1,'Adam',88,56,67),
+-- (2,'John',89,78,67),
+-- (3,'Marry',67,56,99),
+-- (4,'Clyde',78,78,89),
+-- (5,'Arun',86,99,76),
+-- (6,'Shivanshu',75,76,89),
+-- (7,'Nipun',45,88,76),
+-- (8,'Romel',67,55,66),
+-- (9,'Vijit',89,78,56),
+-- (10,'Rasik',90,88,67)
+
+-- select * from school
