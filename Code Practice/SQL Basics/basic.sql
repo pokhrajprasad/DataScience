@@ -44,3 +44,26 @@
 -- select * from employee where department = 'HR'
 
 -- select * from employee where id = 7
+
+-- delete from employee where id = 8
+
+-- select * from employee where name = 'Abhay'
+
+-- delete top(2) from employee where name = 'Abhay'
+
+-- delete from employee where name = 'Abhay'
+
+-- select * from employee
+
+-- insert into employee (id, name, age) VALUES
+-- (8, 'Amit', 48),
+-- (9, 'kunal', 32),
+-- (11, 'Shivani', 50),
+-- (12, 'Rani', 26)
+
+-- insert into employee (id, name, age, gender) VALUES
+-- (10, 'Tanuj', 40, 'Male')
+
+-- update employee set salary = 56000 where name = 'Anuj'
+-- update employee set department = 'Marketing' where id = 7
+
