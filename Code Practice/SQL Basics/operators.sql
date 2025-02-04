@@ -61,8 +61,8 @@
 
 -- select name from employee order by name
 
-select * from employee
+-- select * from employee
 
-select department, sum(salary) from employee group by department
-select department, gender, sum(salary) as salary from employee group by gender, department
-select gender, department, sum(salary) as salary from employee group by gender, department
+-- select department, sum(salary) from employee group by department
+-- select department, gender, sum(salary) as salary from employee group by gender, department
+-- select gender, department, sum(salary) as salary from employee group by gender, department
