@@ -66,3 +66,16 @@
 -- select department, sum(salary) from employee group by department
 -- select department, gender, sum(salary) as salary from employee group by gender, department
 -- select gender, department, sum(salary) as salary from employee group by gender, department
+
+select * from employee
+
+select department, sum(salary) as total_salary from employee group by gender, department
+having department in ('HR', 'IT')
+
+select gender, sum(salary) as total_salary from employee group by gender having gender = 'male'
+
+select department, gender, sum(salary) as total_salary from employee where gender = 'male'
+group by gender, department
+having department in ('HR', 'IT', 'Accounts')
+order by department desc
+
