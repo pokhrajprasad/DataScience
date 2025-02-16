@@ -18,10 +18,10 @@
 -- select ERROR_MESSAGE() as ERROR_MESSAGE
 -- end catch
 
-begin transaction Salary_321
-begin TRY
-select*,select* name as newly_weekly from employee
-end TRY
-begin CATCH
-select ERROR_MESSAGE() as ERROR_MESSAGE
-end catch
+-- begin transaction Salary_321
+--     begin TRY
+--         select*,select* name as newly_weekly from employee
+--     end TRY
+--     begin CATCH
+--         select ERROR_MESSAGE() as ERROR_MESSAGE
+--     end catch
