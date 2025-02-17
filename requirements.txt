@@ -1,2 +1,7 @@
 ipykernel
 numpy
+pandas
+kagglehub
+kaggle
+matplotlib
+seaborn
