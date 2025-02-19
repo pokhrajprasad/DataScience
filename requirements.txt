@@ -5,3 +5,4 @@ kagglehub
 kaggle
 matplotlib
 seaborn
+bs4
