@@ -19,6 +19,22 @@
 -- UNION all
 -- select * from employee where department = 'IT'
 
+--------------------------------------------------------------------------------------------
+--DIFFERENCE BETWEEN UNION AND UNION ALL
+
+-- In SQL, the UNION and UNION ALL operators are used to combine the results of two or more SELECT statements into a single result set. However, there are key differences in how they handle duplicates and how they impact performance:
+
+-- UNION
+-- Removes Duplicates: UNION performs a set operation that automatically eliminates duplicate rows from the results. The SQL engine essentially does a distinct operation on the result set to ensure that all rows are unique.
+-- Performance Impact: Because UNION needs to check for duplicates and remove them, it can be slower, especially when dealing with large data sets. This is because the operation involves sorting and comparing the rows to identify and remove duplicates.
+-- Use Case: Use UNION when you need to ensure that the result set contains no duplicate rows.
+
+-- UNION ALL
+-- Keeps Duplicates: UNION ALL does not perform any duplicate elimination. It simply concatenates the rows from the second query to those of the first query, including all duplicates. This is a straightforward append operation.
+-- Performance Impact: UNION ALL is faster than UNION because it does not incur the overhead of checking for and removing duplicates. It simply combines all rows from the involved SELECT statements.
+-- Use Case: Use UNION ALL when you do not care about duplicates in the result set, or when you know there are no overlaps in the data from the combined queries. It's also useful when performance is a concern and removing duplicates is not necessary.
+----------------------------------------------------------------------------------------------
+
 -- select * from employee where department = 'IT'
 -- INTERSECT
 -- select * from employee where gender = 'Male'

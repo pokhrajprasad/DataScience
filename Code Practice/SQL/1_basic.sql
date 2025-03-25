@@ -12,6 +12,26 @@
 -- city varchar(255)
 -- )
 
+--------------------------------------------------------------------------------------------------
+-- WHAT IS THE DIFFENRENCE B/W VARCHAR & NVARCHAR?
+
+-- In SQL Server, both VARCHAR and NVARCHAR are data types used to store text, but they have some key differences primarily related to how they store the data and the types of data they are intended to handle:
+-- 1. Character Encoding
+-- VARCHAR: Stands for Variable Character. It uses non-Unicode character encoding (such as ASCII) and is designed to store standard characters that fit within the extended ASCII set. Each character in a VARCHAR field typically requires one byte of storage, depending on the collation (character set and rules for text comparison and sorting) used by the database.
+-- NVARCHAR: Stands for National Variable Character. It uses Unicode, specifically UTF-16, allowing it to store any character from any language supported by Unicode. Each character in an NVARCHAR field requires two bytes of storage. This broader support makes NVARCHAR ideal for multilingual databases.
+-- 2. Storage Size
+-- VARCHAR: It can store up to 8000 characters. Because it uses single-byte characters for the most common character sets, it's more storage-efficient when handling data that is exclusively in the English language or contains no special characters outside the ASCII set.
+-- NVARCHAR: It can also store up to 4000 characters (or up to 8000 bytes). Because each character uses two bytes, even if the character could be stored in one byte using VARCHAR.
+-- 3. Usage
+-- VARCHAR: Should be used when you are certain your data will not need to include characters from multiple languages or special symbols not covered by the ASCII set. It's more space-efficient in these cases, which can also lead to performance benefits in terms of storage and speed when handling large volumes of text data.
+-- NVARCHAR: Should be used when dealing with international data that might include multiple languages. It's essential in global applications where various locales, character sets, and special characters are expected.
+-- 4. Performance
+-- VARCHAR: Generally faster with operations in databases configured with default ASCII collation because it uses less space and the operations are inherently less complex due to the simpler encoding.
+-- NVARCHAR: Can be slower due to double the storage requirement per character, which can impact performance on large text processing operations. However, the performance hit is often considered negligible compared to the advantage of supporting international character sets.
+-- 5. Collation and Comparison
+-- VARCHAR and NVARCHAR data types can have different collations, which can affect how string comparison and sorting operations are performed. Care must be taken when comparing strings of these two types directly due to potential collation conflicts.
+---------------------------------------------------------------------------------------------------
+
 --drop table employee
 
 -- select * from employee
@@ -52,6 +72,23 @@
 -- delete top(2) from employee where name = 'Abhay'
 
 -- delete from employee where name = 'Abhay'
+
+---------------------------------------------------------------------------------------------------------
+-- DELETE FUNCTIONS LIKE TRUNCATE WHEN WHERE CLAUSE IS REMOVED.
+
+-- DELETE Command without WHERE Clause
+-- Logs: DELETE is a DML (Data Manipulation Language) operation that logs each row deletion individually in the transaction log. This means it can generate a lot of log data and therefore can be slow for large tables because it processes each row individually.
+-- Transaction Support: Because it logs all changes, you can roll back a DELETE operation if it's performed within a transaction. This provides flexibility in transaction management.
+-- Trigger Execution: DELETE operations will fire any delete triggers defined on the table, which can be used to enforce business rules or maintain data integrity.
+-- Retention of Table Structure and Properties: DELETE retains all table structures, indexes, constraints, and properties. It only removes the data.
+-- TRUNCATE Command
+-- Logs: TRUNCATE is a DDL (Data Definition Language) operation that deallocates the data pages used by the table and logs only the deallocations. This means it uses fewer resources and is much faster than DELETE for removing all rows from a large table.
+-- Transaction Support: TRUNCATE can be part of a transaction and can be rolled back provided it has not been committed yet.
+-- Trigger Execution: Standard TRUNCATE does not fire delete triggers because it does not log individual row deletions.
+-- Reset of Identity Values: TRUNCATE resets any identity column specifications to the seed value specified or the default. This is not the case with DELETE, where identity column values continue incrementing from the last used value.
+-- Permissions: TRUNCATE requires at least ALTER table permissions, whereas DELETE only needs DELETE permissions.
+---------------------------------------------------------------------------------------------------------
+
 
 -- select * from employee
 
@@ -126,6 +163,20 @@
 -- select * into #info from employee
 
 -- select * from #info
+
+---------------------------------------------------------------------------------------------
+-- In SQL Server, temporary tables come in two primary forms: local temporary tables and global temporary tables. The lifespan of each type of temporary table is governed by different rules:
+
+-- 1. Local Temporary Tables
+-- Syntax: Local temporary tables are created using a single hash symbol as a prefix (e.g., #TableName).
+-- Lifespan: A local temporary table is automatically dropped when the session that created it ends, or the connection to the SQL Server is closed. Additionally, if created inside a stored procedure or batch, they are dropped automatically at the end of the procedure or batch.
+-- Scope: These tables are visible only to the connection that created them and cannot be accessed by other sessions or connections.
+
+-- 2. Global Temporary Tables
+-- Syntax: Global temporary tables are created using double hash symbols as a prefix (e.g., ##TableName).
+-- Lifespan: A global temporary table is dropped automatically when the last session that is using it ends. This means it remains in the database as long as there is at least one active session referencing it.
+-- Scope: These tables are visible to all sessions and connections. Any user or connection can query a global temporary table as long as it exists.
+------------------------------------------------------------------------------------------------------
 
 -- create table school
 -- (
